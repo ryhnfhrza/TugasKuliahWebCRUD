@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.6.3/css/all.css"
+    />
+    <script src="https://unpkg.com/feather-icons"></script>
+    <title>Login Page</title>
+  </head>
+  <body>
+    <nav>
+      <div>
+        <a href="/"><b>MADURA99</b></a>
+      </div>
+      <ul>
+        <a href="#Home">Home</a>
+        <a href="#Layanan">Layanan</a>
+        <a href="../index.php">Booking</a>
+        <li class="dropdown">
+          <a href="login"><i data-feather="user"></i></a>
+          <div class="dropdown-content">
+            <a href="../login/login.php">Login</a>
+            <a href="../RGS/register.html">Sign Up</a>
+          </div>
+        </li>
+      </ul>
+    </nav>
+    <div class="input">
+      <h1>LOGIN</h1>
+      <form action="login.php" method="POST">
+        <div class="box-input">
+          <i class="fas fa-envelope-open-text"></i>
+          <input type="text" name="username" placeholder="Username" required />
+        </div>
+        <div class="box-input">
+          <i class="fas fa-lock"></i>
+          <input
+            type="password"
+            name="password"
+            placeholder="Password"
+            required
+          />
+        </div>
+        <button type="submit" name="login" class="btn-input">Login</button>
+        <div class="bottom">
+          <p>
+            Belum punya akun?
+            <a href="../RGS/register.html">Registrasi disini</a>
+          </p>
+        </div>
+      </form>
+    </div>
+  
+    </div>
+
+    <footer>
+      <main>
+        <div class="contact">
+          <h3>Kontak Kami <br /><br /></h3>
+          <ul>
+            <li>
+              <i data-feather="map-pin"></i>
+              <a href="https://maps.app.goo.gl/pWScWGZzwadpsGyu6"
+                >Jl. Urip Sumoeharjo</a
+              >
+            </li>
+            <li>
+              <i data-feather="phone"></i>
+              <a href="https://wa.me/6281212000637">0812 1200 0637</a>
+            </li>
+            <li>
+              <i data-feather="mail"></i>
+              <a href="mailto:iccankar04@gmail.com">iccankar04@gmail.com</a>
+            </li>
+          </ul>
+        </div>
+        <div class="sosmed">
+          <ul>
+            <li>
+              <a href="https://www.facebook.com"
+                ><i data-feather="facebook" width="50px" height="50px"></i
+              ></a>
+            </li>
+          </ul>
+          <ul>
+            <li>
+              <a href="https://www.instagram.com/"
+                ><i data-feather="instagram" width="50px" height="50px"></i
+              ></a>
+            </li>
+          </ul>
+          <ul>
+            <li>
+              <a href="https://www.youtube.com"
+                ><i data-feather="youtube" width="50px" height="50px"></i
+              ></a>
+            </li>
+          </ul>
+        </div>
+      </main>
+      <div class="copyright">&copy; 2024 MADURA99. All rights reserved.</div>
+    </footer>
+
+    <script>
+      feather.replace();
+    </script>
+  </body>
+</html>

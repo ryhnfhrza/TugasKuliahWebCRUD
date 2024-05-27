@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="styleRegis.css"
+      media="screen"
+      title="no title"
+    />
+    <script src="https://unpkg.com/feather-icons"></script>
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.6.3/css/all.css"
+    />
+    <title>Registrasi</title>
+  </head>
+  <body>
+    <nav>
+      <div>
+        <a href="/"><b>MADURA99</b></a>
+      </div>
+      <ul>
+        <a href="../Madura/home.html">Home</a>
+        <a href="../Madura/home.html#Layanan">Layanan</a>
+        <a href="../index.php">Booking</a>
+        <li class="dropdown">
+          <a href="login"><i data-feather="user"></i></a>
+          <div class="dropdown-content">
+            <a href="../login/login.php">Login</a>
+            <a href="../RGS/register.html">Sign Up</a>
+            <a href="../profile/profile.php">Profile</a>
+          </div>
+        </li>
+      </ul>
+    </nav>
+    <div class="input">
+      <h1>REGISTRASI</h1>
+      <form
+        id="registerForm"
+        action="register.php"
+        method="POST"
+        onsubmit="return validateForm()"
+      >
+        <div class="box-input">
+          <i class="fas fa-address-book"></i>
+          <input
+            type="text"
+            name="username"
+            id="username"
+            placeholder="Username"
+            required
+          />
+        </div>
+        <div class="box-input">
+          <i class="fas fa-lock"></i>
+          <input
+            type="password"
+            name="password"
+            id="password"
+            placeholder="Password"
+            required
+          />
+        </div>
+        <div class="box-input">
+          <img src="telepon.png" height="25" width="25" />
+          <input
+            type="text"
+            name="no_telp"
+            id="no_telp"
+            placeholder="Nomor telepon"
+            required
+          />
+        </div>
+        <div class="box-input">
+          <img src="alamat.png" height="25" width="25" />
+          <input
+            type="text"
+            name="alamat"
+            id="alamat"
+            placeholder="Alamat"
+            required
+          />
+        </div>
+        <button type="submit" name="register" class="btn-input">
+          Registrasi
+        </button>
+        <div class="bottom">
+          <p>sudah punya akun? <a href="../login/login.php">login disini</a></p>
+        </div>
+      </form>
+    </div>
+    <footer>
+      <main>
+        <div class="contact">
+          <h3>Kontak Kami <br /><br /></h3>
+          <ul>
+            <li>
+              <i data-feather="map-pin"></i>
+              <a href="https://maps.app.goo.gl/pWScWGZzwadpsGyu6"
+                >Jl. Urip Sumoeharjo</a
+              >
+            </li>
+            <li>
+              <i data-feather="phone"></i>
+              <a href="https://wa.me/6281212000637">0812 1200 0637</a>
+            </li>
+            <li>
+              <i data-feather="mail"></i>
+              <a href="mailto:iccankar04@gmail.com">iccankar04@gmail.com</a>
+            </li>
+          </ul>
+        </div>
+        <div class="sosmed">
+          <ul>
+            <li>
+              <a href="https://www.facebook.com"
+                ><i data-feather="facebook" width="50px" height="50px"></i
+              ></a>
+            </li>
+          </ul>
+          <ul>
+            <li>
+              <a href="https://www.instagram.com/"
+                ><i data-feather="instagram" width="50px" height="50px"></i
+              ></a>
+            </li>
+          </ul>
+          <ul>
+            <li>
+              <a href="https://www.youtube.com/watch?v=JxvBdVhVitU"
+                ><i data-feather="youtube" width="50px" height="50px"></i
+              ></a>
+            </li>
+          </ul>
+        </div>
+      </main>
+      <div class="copyright">&copy; 2024 MADURA99. All rights reserved.</div>
+    </footer>
+
+    <script>
+      feather.replace();
+    </script>
+    <script>
+      function validateForm() {
+        var username = document.getElementById("username").value;
+        var password = document.getElementById("password").value;
+        var no_telp = document.getElementById("no_telp").value;
+        var alamat = document.getElementById("alamat").value;
+
+        // Periksa field  kosong
+        if (
+          username === "" ||
+          password === "" ||
+          no_telp === "" ||
+          alamat === ""
+        ) {
+          alert("Semua field harus diisi.");
+          return false;
+        }
+
+        // Validasi nomor telepon
+        var phonePattern = /^08[0-9]{8,11}$/;
+        if (!phonePattern.test(no_telp)) {
+          alert(
+            "Nomor telepon harus merupakan nomor Indonesia yang valid, dimulai dengan 08 dan memiliki panjang 10-13 digit."
+          );
+          return false;
+        }
+
+        // Periksa username
+        var xhr = new XMLHttpRequest();
+        xhr.open(
+          "GET",
+          "check_username.php?username=" + encodeURIComponent(username),
+          false
+        );
+        xhr.send();
+
+        if (xhr.responseText === "taken") {
+          alert(
+            "Username sudah digunakan. Silakan gunakan username yang lain."
+          );
+          return false;
+        }
+
+        return true;
+      }
+    </script>
+  </body>
+</html>
